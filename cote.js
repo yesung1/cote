@@ -1,15 +1,17 @@
 /*
 
 문제 설명
-문자들이 담겨있는 배열 arr가 주어집니다. arr의 원소들을 순서대로 이어 붙인 문자열을 return 하는 solution함수를 작성해 주세요.
+문자열 my_string과 정수 k가 주어질 때, my_string을 k번 반복한 문자열을 return 하는 solution 함수를 작성해 주세요.
 
 제한사항
-1 ≤ arr의 길이 ≤ 200
-arr의 원소는 전부 알파벳 소문자로 이루어진 길이가 1인 문자열입니다.
+1 ≤ my_string의 길이 ≤ 100
+my_string은 영소문자로만 이루어져 있습니다.
+1 ≤ k ≤ 100
 
 
 */
-function solution(arr) {
-  var answer = arr.join("");
+function solution(my_string, k) {
+  var answer = "";
+  answer = my_string.repeat(k);
   return answer;
 }
