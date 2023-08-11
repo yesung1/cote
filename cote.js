@@ -1,23 +1,15 @@
 /*
 
 문제 설명
-길이가 같은 두 문자열 str1과 str2가 주어집니다.
-
-두 문자열의 각 문자가 앞에서부터 서로 번갈아가면서 한 번씩 등장하는 문자열을 만들어 return 하는 solution 함수를 완성해 주세요.
+문자들이 담겨있는 배열 arr가 주어집니다. arr의 원소들을 순서대로 이어 붙인 문자열을 return 하는 solution함수를 작성해 주세요.
 
 제한사항
-1 ≤ str1의 길이 = str2의 길이 ≤ 10
-str1과 str2는 알파벳 소문자로 이루어진 문자열입니다.
-
+1 ≤ arr의 길이 ≤ 200
+arr의 원소는 전부 알파벳 소문자로 이루어진 길이가 1인 문자열입니다.
 
 
 */
-function solution(str1, str2) {
-  var answer = "";
-  str1 = [...str1];
-  str2 = [...str2];
-  for (let x in str1) {
-    answer += str1[x] + str2[x];
-  }
+function solution(arr) {
+  var answer = arr.join("");
   return answer;
 }
