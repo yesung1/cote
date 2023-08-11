@@ -1,17 +1,22 @@
 /*
 
 문제 설명
-음이 아닌 정수를 9로 나눈 나머지는 그 정수의 각 자리 숫자의 합을 9로 나눈 나머지와 같은 것이 알려져 있습니다.
-이 사실을 이용하여 음이 아닌 정수가 문자열 number로 주어질 때, 이 정수를 9로 나눈 나머지를 return 하는 solution 함수를 작성해주세요.
+문자열 my_string과 이차원 정수 배열 queries가 매개변수로 주어집니다. queries의 원소는 [s, e] 형태로, my_string의 인덱스 s부터 인덱스 e까지를 뒤집으라는 의미입니다. my_string에 queries의 명령을 순서대로 처리한 후의 문자열을 return 하는 solution 함수를 작성해 주세요.
 
 제한사항
-1 ≤ number의 길이 ≤ 100,000
-number의 원소는 숫자로만 이루어져 있습니다.
-number는 정수 0이 아니라면 숫자 '0'으로 시작하지 않습니다.
+my_string은 영소문자로만 이루어져 있습니다.
+1 ≤ my_string의 길이 ≤ 1,000
+queries의 원소는 [s, e]의 형태로 0 ≤ s ≤ e < my_string의 길이를 만족합니다.
+1 ≤ queries의 길이 ≤ 1,000
 
 */
-function solution(number) {
-  var answer = 0;
-  answer = BigInt(number) % 9n;
-  return answer;
+function solution(my_string, queries) {
+  let myStr = my_string.split("");
+  let changeVal = "";
+  var answer = "";
+  queries.map(([start, end]) => {
+    changeVal = myStr.slice(start, end + 1);
+    myStr.splice(start, changeVal.length, ...changeVal.reverse());
+  });
+  return myStr.join("");
 }
