@@ -1,17 +1,15 @@
 /*
 
 문제 설명
-문자열 my_string과 정수 k가 주어질 때, my_string을 k번 반복한 문자열을 return 하는 solution 함수를 작성해 주세요.
+연산 ⊕는 두 정수에 대한 연산으로 두 정수를 붙여서 쓴 값을 반환합니다. 예를 들면 다음과 같습니다.
 
-제한사항
-1 ≤ my_string의 길이 ≤ 100
-my_string은 영소문자로만 이루어져 있습니다.
-1 ≤ k ≤ 100
+12 ⊕ 3 = 123
+3 ⊕ 12 = 312
+양의 정수 a와 b가 주어졌을 때, a ⊕ b와 b ⊕ a 중 더 큰 값을 return 하는 solution 함수를 완성해 주세요.
 
+단, a ⊕ b와 b ⊕ a가 같다면 a ⊕ b를 return 합니다.
 
 */
-function solution(my_string, k) {
-  var answer = "";
-  answer = my_string.repeat(k);
-  return answer;
+function solution(a, b) {
+  return Math.max(Number(`${a}${b}`), Number(`${b}${a}`));
 }
