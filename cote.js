@@ -2,46 +2,24 @@
 
 
 문제 설명
-정수 배열 numLog가 주어집니다. 처음에 numLog[0]에서 부터 시작해 "w", "a", "s", "d"로 이루어진 문자열을 입력으로 받아 순서대로 다음과 같은 조작을 했다고 합시다.
+정수 배열 arr와 2차원 정수 배열 queries이 주어집니다. queries의 원소는 각각 하나의 query를 나타내며, [i, j] 꼴입니다.
 
-"w" : 수에 1을 더한다.
-"s" : 수에 1을 뺀다.
-"d" : 수에 10을 더한다.
-"a" : 수에 10을 뺀다.
-그리고 매번 조작을 할 때마다 결괏값을 기록한 정수 배열이 numLog입니다. 즉, numLog[i]는 numLog[0]로부터 총 i번의 조작을 가한 결과가 저장되어 있습니다.
+각 query마다 순서대로 arr[i]의 값과 arr[j]의 값을 서로 바꿉니다.
 
-주어진 정수 배열 numLog에 대해 조작을 위해 입력받은 문자열을 return 하는 solution 함수를 완성해 주세요.
+위 규칙에 따라 queries를 처리한 이후의 arr를 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-2 ≤ log의 길이 ≤ 100,000
--100,000 ≤ log[0] ≤ 100,000
-1 ≤ i ≤ log의 길이인 모든 i에 대해 |log[i] - log[i - 1]|의 값은 1 또는 10입니다.
+1 ≤ arr의 길이 ≤ 1,000
+0 ≤ arr의 원소 ≤ 1,000,000
+1 ≤ queries의 길이 ≤ 1,000
+0 ≤ i < j < arr의 길이
 
 
 
 */
-function solution(numLog) {
-  var answer = "";
-  [...numLog].reduce((acc, curr) => {
-    if (acc === curr) return (acc = curr);
-    switch (curr - acc) {
-      case 1:
-        answer += "w";
-        break;
-      case -1:
-        answer += "s";
-        break;
-      case 10:
-        answer += "d";
-        break;
-      case -10:
-        answer += "a";
-        break;
-      default:
-        break;
-    }
-    acc = curr;
-    return acc;
-  }, 0);
-  return answer;
+function solution(arr, queries) {
+  queries.forEach(([a, b]) => {
+    [arr[a], arr[b]] = [arr[b], arr[a]];
+  });
+  return arr;
 }
