@@ -1,21 +1,30 @@
 /*
 
 문제 설명
-두 정수 a, d와 길이가 n인 boolean 배열 included가 주어집니다. 첫째항이 a, 공차가 d인 등차수열에서 included[i]가 i + 1항을 의미할 때, 이 등차수열의 1항부터 n항까지 included가 true인 항들만 더한 값을 return 하는 solution 함수를 작성해 주세요.
+1부터 6까지 숫자가 적힌 주사위가 세 개 있습니다. 세 주사위를 굴렸을 때 나온 숫자를 각각 a, b, c라고 했을 때 얻는 점수는 다음과 같습니다.
+
+세 숫자가 모두 다르다면 a + b + c 점을 얻습니다.
+세 숫자 중 어느 두 숫자는 같고 나머지 다른 숫자는 다르다면 (a + b + c) × (a2 + b2 + c2 )점을 얻습니다.
+세 숫자가 모두 같다면 (a + b + c) × (a2 + b2 + c2 ) × (a3 + b3 + c3 )점을 얻습니다.
+세 정수 a, b, c가 매개변수로 주어질 때, 얻는 점수를 return 하는 solution 함수를 작성해 주세요.
 
 제한사항
-1 ≤ a ≤ 100
-1 ≤ d ≤ 100
-1 ≤ included의 길이 ≤ 100
-included에는 true가 적어도 하나 존재합니다.
-
+a, b, c는 1이상 6이하의 정수입니다.
 
 */
-function solution(a, d, included) {
-  var answer = 0;
-  [...included].reduce((acc, curr) => {
-    curr === true ? (answer += a) : curr;
-    a += d;
-  }, 0);
+function solution(a, b, c) {
+  let list = new Set([a, b, c]);
+  return cul([a, b, c], list.size);
+}
+
+function cul(list, n = 1) {
+  let answer = 1;
+  [a, b, c] = list;
+  console.log(a, b, c);
+  n = list.length + 1 - n;
+  for (let x = 1; x <= n; x++) {
+    console.log(x);
+    answer *= Math.pow(a, x) + Math.pow(b, x) + Math.pow(c, x);
+  }
   return answer;
 }
