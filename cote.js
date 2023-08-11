@@ -1,12 +1,12 @@
 /*
 
 문제 설명
-문자열 str과 정수 n이 주어집니다.
-str이 n번 반복된 문자열을 만들어 출력하는 코드를 작성해 보세요.
+영어 알파벳으로 이루어진 문자열 str이 주어집니다. 각 알파벳을 대문자는 소문자로 소문자는 대문자로 변환해서 출력하는 코드를 작성해 보세요.
 
 제한사항
-1 ≤ str의 길이 ≤ 10
-1 ≤ n ≤ 5
+1 ≤ str의 길이 ≤ 20
+str은 알파벳으로 이루어진 문자열입니다.
+
 
 */
 
@@ -17,15 +17,17 @@ const rl = readline.createInterface({
 });
 
 let input = [];
+let arr2 = [];
+let arr3 = [];
 
 rl.on("line", function (line) {
-  input = line.split(" ");
+  input = [line];
 }).on("close", function () {
   str = input[0];
-  n = Number(input[1]);
-  let strSum = "";
-  for (let i = 0; i < n; i++) {
-    strSum += str;
-  }
-  console.log(strSum);
+  arr2 = str.split("");
+  arr3 = arr2.filter(function (e, i, arr) {
+    e === e.toUpperCase() ? e.toLowerCase() : e.toUpperCase();
+    console.log((arr[i] = e));
+  });
+  console.log(arr3.join(""));
 });
