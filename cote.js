@@ -2,40 +2,46 @@
 
 
 문제 설명
-정수 n과 문자열 control이 주어집니다. control은 "w", "a", "s", "d"의 4개의 문자로 이루어져 있으며, control의 앞에서부터 순서대로 문자에 따라 n의 값을 바꿉니다.
+정수 배열 numLog가 주어집니다. 처음에 numLog[0]에서 부터 시작해 "w", "a", "s", "d"로 이루어진 문자열을 입력으로 받아 순서대로 다음과 같은 조작을 했다고 합시다.
 
-"w" : n이 1 커집니다.
-"s" : n이 1 작아집니다.
-"d" : n이 10 커집니다.
-"a" : n이 10 작아집니다.
-위 규칙에 따라 n을 바꿨을 때 가장 마지막에 나오는 n의 값을 return 하는 solution 함수를 완성해 주세요.
+"w" : 수에 1을 더한다.
+"s" : 수에 1을 뺀다.
+"d" : 수에 10을 더한다.
+"a" : 수에 10을 뺀다.
+그리고 매번 조작을 할 때마다 결괏값을 기록한 정수 배열이 numLog입니다. 즉, numLog[i]는 numLog[0]로부터 총 i번의 조작을 가한 결과가 저장되어 있습니다.
+
+주어진 정수 배열 numLog에 대해 조작을 위해 입력받은 문자열을 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
--100,000 ≤ n ≤ 100,000
-1 ≤ control의 길이 ≤ 100,000
-control은 알파벳 소문자 "w", "a", "s", "d"로 이루어진 문자열입니다.
+2 ≤ log의 길이 ≤ 100,000
+-100,000 ≤ log[0] ≤ 100,000
+1 ≤ i ≤ log의 길이인 모든 i에 대해 |log[i] - log[i - 1]|의 값은 1 또는 10입니다.
 
 
 
 */
-function solution(n, control) {
-  var answer = 0;
-  function func1(item) {
-    switch (item) {
-      case "w":
-        n += 1;
+function solution(numLog) {
+  var answer = "";
+  [...numLog].reduce((acc, curr) => {
+    if (acc === curr) return (acc = curr);
+    switch (curr - acc) {
+      case 1:
+        answer += "w";
         break;
-      case "s":
-        n -= 1;
+      case -1:
+        answer += "s";
         break;
-      case "d":
-        n += 10;
+      case 10:
+        answer += "d";
         break;
-      case "a":
-        n -= 10;
+      case -10:
+        answer += "a";
+        break;
+      default:
         break;
     }
-  }
-  [...control].map((item, i) => func1(item));
-  return n;
+    acc = curr;
+    return acc;
+  }, 0);
+  return answer;
 }
