@@ -1,14 +1,13 @@
 /*
 
 문제 설명
-두 개의 문자열 str1, str2가 공백으로 구분되어 입력으로 주어집니다.
-입출력 예와 같이 str1과 str2을 이어서 출력하는 코드를 작성해 보세요.
+문자열 str이 주어집니다.
+문자열을 시계방향으로 90도 돌려서 아래 입출력 예와 같이 출력하는 코드를 작성해 보세요.
 
 제한사항
-1 ≤ str1, str2의 길이 ≤ 10
+1 ≤ str의 길이 ≤ 10
 
 */
-
 const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
@@ -16,13 +15,12 @@ const rl = readline.createInterface({
 });
 
 let input = [];
-let str3 = "";
 
 rl.on("line", function (line) {
-  input = line.split(" ");
+  input = [line];
 }).on("close", function () {
-  str1 = input[0];
-  str2 = input[1];
-  str3 = str1 + str2;
-  console.log(str3);
+  str = input[0];
+  for (let x of str) {
+    console.log(x);
+  }
 });
