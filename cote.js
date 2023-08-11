@@ -1,22 +1,24 @@
 /*
 
 문제 설명
-문자열 my_string과 이차원 정수 배열 queries가 매개변수로 주어집니다. queries의 원소는 [s, e] 형태로, my_string의 인덱스 s부터 인덱스 e까지를 뒤집으라는 의미입니다. my_string에 queries의 명령을 순서대로 처리한 후의 문자열을 return 하는 solution 함수를 작성해 주세요.
+문자열 배열 intStrs와 정수 k, s, l가 주어집니다. intStrs의 원소는 숫자로 이루어져 있습니다.
+
+배열 intStrs의 각 원소마다 s번 인덱스에서 시작하는 길이 l짜리 부분 문자열을 잘라내 정수로 변환합니다. 이때 변환한 정수값이 k보다 큰 값들을 담은 배열을 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-my_string은 영소문자로만 이루어져 있습니다.
-1 ≤ my_string의 길이 ≤ 1,000
-queries의 원소는 [s, e]의 형태로 0 ≤ s ≤ e < my_string의 길이를 만족합니다.
-1 ≤ queries의 길이 ≤ 1,000
+0 ≤ s < 100
+1 ≤ l ≤ 8
+10l - 1 ≤ k < 10l
+1 ≤ intStrs의 길이 ≤ 10,000
+s + l ≤ intStrs의 원소의 길이 ≤ 120
 
 */
-function solution(my_string, queries) {
-  let myStr = my_string.split("");
-  let changeVal = "";
-  var answer = "";
-  queries.map(([start, end]) => {
-    changeVal = myStr.slice(start, end + 1);
-    myStr.splice(start, changeVal.length, ...changeVal.reverse());
+function solution(intStrs, k, s, l) {
+  var answer = [];
+  let strVal = [];
+  intStrs.filter((str) => {
+    strVal = str.split("").splice(s, l).join("");
+    strVal > k ? answer.push(Number(strVal)) : "";
   });
-  return myStr.join("");
+  return answer;
 }
