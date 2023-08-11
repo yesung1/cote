@@ -1,19 +1,17 @@
 /*
 
-
 문제 설명
-알파벳 대소문자로만 이루어진 문자열 my_string이 주어질 때, my_string에서 'A'의 개수, my_string에서 'B'의 개수,..., my_string에서 'Z'의 개수, my_string에서 'a'의 개수, my_string에서 'b'의 개수,..., my_string에서 'z'의 개수를 순서대로 담은 길이 52의 정수 배열을 return 하는 solution 함수를 작성해 주세요.
+정수 n과 k가 주어졌을 때, 1 이상 n이하의 정수 중에서 k의 배수를 오름차순으로 저장한 배열을 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-1 ≤ my_string의 길이 ≤ 1,000
+1 ≤ n ≤ 1,000,000
+1 ≤ k ≤ min(1,000, n)
 
 */
-function solution(my_string) {
+function solution(n, k) {
   var answer = [];
-  answer = new Array(52).fill(0);
-  let al = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  for (let i = 0; i < my_string.length; i++) {
-    answer[al.indexOf(my_string[i])]++;
+  for (let i = k; i <= n; i += k) {
+    answer.push(i);
   }
   return answer;
 }
