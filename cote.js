@@ -1,18 +1,16 @@
 /*
 
 문제 설명
-연산 ⊕는 두 정수에 대한 연산으로 두 정수를 붙여서 쓴 값을 반환합니다. 예를 들면 다음과 같습니다.
-
-12 ⊕ 3 = 123
-3 ⊕ 12 = 312
-양의 정수 a와 b가 주어졌을 때, a ⊕ b와 2 * a * b 중 더 큰 값을 return하는 solution 함수를 완성해 주세요.
-
-단, a ⊕ b와 2 * a * b가 같으면 a ⊕ b를 return 합니다.
+정수 num과 n이 매개 변수로 주어질 때, num이 n의 배수이면 1을 return n의 배수가 아니라면 0을 return하도록 solution 함수를 완성해주세요.
 
 제한사항
-1 ≤ a, b < 10,000
+2 ≤ num ≤ 100
+2 ≤ n ≤ 9
 
 */
-function solution(a, b) {
-  return Math.max(Number(`${a}${b}`), Number(2 * a * b));
+function solution(num, n) {
+  var answer = 0;
+
+  answer = num % n === 0 ? 1 : 0;
+  return answer;
 }
