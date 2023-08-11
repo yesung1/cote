@@ -1,19 +1,23 @@
 /*
 
 문제 설명
-문자열 my_string, overwrite_string과 정수 s가 주어집니다. 문자열 my_string의 인덱스 s부터 overwrite_string의 길이만큼을 문자열 overwrite_string으로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요.
+길이가 같은 두 문자열 str1과 str2가 주어집니다.
+
+두 문자열의 각 문자가 앞에서부터 서로 번갈아가면서 한 번씩 등장하는 문자열을 만들어 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-my_string와 overwrite_string은 숫자와 알파벳으로 이루어져 있습니다.
-1 ≤ overwrite_string의 길이 ≤ my_string의 길이 ≤ 1,000
-0 ≤ s ≤ my_string의 길이 - overwrite_string의 길이
+1 ≤ str1의 길이 = str2의 길이 ≤ 10
+str1과 str2는 알파벳 소문자로 이루어진 문자열입니다.
+
 
 
 */
-function solution(my_string, overwrite_string, s) {
-  let answer =
-    my_string.slice(0, s) +
-    overwrite_string +
-    my_string.slice(s + overwrite_string.length);
+function solution(str1, str2) {
+  var answer = "";
+  str1 = [...str1];
+  str2 = [...str2];
+  for (let x in str1) {
+    answer += str1[x] + str2[x];
+  }
   return answer;
 }
