@@ -1,10 +1,12 @@
 /*
 
 문제 설명
-정수 a와 b가 주어집니다. 각 수를 입력받아 입출력 예와 같은 형식으로 출력하는 코드를 작성해 보세요.
+문자열 str과 정수 n이 주어집니다.
+str이 n번 반복된 문자열을 만들어 출력하는 코드를 작성해 보세요.
 
 제한사항
--100,000 ≤ a, b ≤ 100,000
+1 ≤ str의 길이 ≤ 10
+1 ≤ n ≤ 5
 
 */
 
@@ -19,6 +21,11 @@ let input = [];
 rl.on("line", function (line) {
   input = line.split(" ");
 }).on("close", function () {
-  console.log("a = " + Number(input[0]));
-  console.log("b = " + Number(input[1]));
+  str = input[0];
+  n = Number(input[1]);
+  let strSum = "";
+  for (let i = 0; i < n; i++) {
+    strSum += str;
+  }
+  console.log(strSum);
 });
