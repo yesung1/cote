@@ -1,12 +1,11 @@
 /*
 
 문제 설명
-다음과 같이 출력하도록 코드를 작성해 주세요.
+두 정수 a, b가 주어질 때 다음과 같은 형태의 계산식을 출력하는 코드를 작성해 보세요.
 
-출력 예시
-
-!@#$%^&*(\'"<>?:;
-
+a + b = c
+제한사항
+1 ≤ a, b ≤ 100
 
 */
 
@@ -16,6 +15,14 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.on("close", function () {
-  console.log(`!@#$%^&*(\\'"<>?:;`);
+let input = [];
+
+rl.on("line", function (line) {
+  input = line.split(" ");
+}).on("close", function () {
+  console.log(
+    `${Number(input[0])} + ${Number(input[1])} = ${
+      Number(input[0]) + Number(input[1])
+    }`
+  );
 });
