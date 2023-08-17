@@ -1,20 +1,22 @@
 /*
 
-순서 바꾸기
+왼쪽 오른쪽
 문제 설명
-정수 리스트 num_list와 정수 n이 주어질 때, num_list를 n 번째 원소 이후의 원소들과 n 번째까지의 원소들로 나눠 n 번째 원소 이후의 원소들을 n 번째까지의 원소들 앞에 붙인 리스트를 return하도록 solution 함수를 완성해주세요.
+문자열 리스트 str_list에는 "u", "d", "l", "r" 네 개의 문자열이 여러 개 저장되어 있습니다. str_list에서 "l"과 "r" 중 먼저 나오는 문자열이 "l"이라면 해당 문자열을 기준으로 왼쪽에 있는 문자열들을 순서대로 담은 리스트를, 먼저 나오는 문자열이 "r"이라면 해당 문자열을 기준으로 오른쪽에 있는 문자열들을 순서대로 담은 리스트를 return하도록 solution 함수를 완성해주세요. "l"이나 "r"이 없다면 빈 리스트를 return합니다.
 
 제한사항
-2 ≤ num_list의 길이 ≤ 30
-1 ≤ num_list의 원소 ≤ 9
-1 ≤ n ≤ num_list의 길이
+1 ≤ str_list의 길이 ≤ 20
+str_list는 "u", "d", "l", "r" 네 개의 문자열로 이루어져 있습니다.
 
 
 
 */
 
-function solution(num_list, n) {
-  let first = num_list.slice(0, n);
-  let last = num_list.slice(n, num_list.length);
-  return [...last, ...first];
+function solution(str_list) {
+  const result = [];
+  for (let x = 0; x < str_list.length; x++) {
+    if (str_list[x] === "l") return str_list.slice(0, x);
+    if (str_list[x] === "r") return str_list.slice(x + 1);
+  }
+  return result;
 }
