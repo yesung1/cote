@@ -1,26 +1,20 @@
 /*
 
 문제 설명
-정수 배열 arr와 2차원 정수 배열 queries이 주어집니다. queries의 원소는 각각 하나의 query를 나타내며, [s, e] 꼴입니다.
-
-각 query마다 순서대로 s ≤ i ≤ e인 모든 i에 대해 arr[i]에 1을 더합니다.
-
-위 규칙에 따라 queries를 처리한 이후의 arr를 return 하는 solution 함수를 완성해 주세요.
+정수 배열 arr가 주어집니다. arr의 각 원소에 대해 값이 50보다 크거나 같은 짝수라면 2로 나누고, 50보다 작은 홀수라면 2를 곱합니다. 그 결과인 정수 배열을 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-1 ≤ arr의 길이 ≤ 1,000
-0 ≤ arr의 원소 ≤ 1,000,000
-1 ≤ queries의 길이 ≤ 1,000
-0 ≤ s ≤ e < arr의 길이
+1 ≤ arr의 길이 ≤ 1,000,000
+1 ≤ arr의 원소의 값 ≤ 100
 
 */
 
-function solution(arr, queries) {
+function solution(arr) {
   var answer = [];
-  queries.map(([s, e]) => {
-    for (let i = s; i <= e; i++) {
-      arr[i] += 1;
-    }
+  answer = arr.map((v) => {
+    if (v >= 50 && v % 2 === 0) return v / 2;
+    if (v < 50 && v % 2 === 1) return v * 2;
+    return v;
   });
-  return (answer = arr);
+  return answer;
 }
