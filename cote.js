@@ -1,13 +1,17 @@
 /*
 
 문제 설명
-'m'과 "rn"이 모양이 비슷하게 생긴 점을 활용해 문자열에 장난을 하려고 합니다. 문자열 rny_string이 주어질 때, rny_string의 모든 'm'을 "rn"으로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요.
+알파벳으로 이루어진 문자열 myString과 pat이 주어집니다. myString의 연속된 부분 문자열 중 pat이 존재하면 1을 그렇지 않으면 0을 return 하는 solution 함수를 완성해 주세요.
+
+단, 알파벳 대문자와 소문자는 구분하지 않습니다.
 
 제한사항
-1 ≤ rny_string의 길이 ≤ 100
-rny_string은 영소문자로만 이루어져 있습니다.
+1 ≤ myString의 길이 ≤ 100,000
+1 ≤ pat의 길이 ≤ 300
+myString과 pat은 모두 알파벳으로 이루어진 문자열입니다.
 
 
 */
 
-const solution = (rny_string) => rny_string.replaceAll("m", "rn");
+const solution = (myString, pat) =>
+  myString.toLowerCase().indexOf(pat.toLowerCase()) === -1 ? 0 : 1;
