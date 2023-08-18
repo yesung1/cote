@@ -1,31 +1,18 @@
 /*
 
 문제 설명
-정수가 있을 때, 짝수라면 반으로 나누고, 홀수라면 1을 뺀 뒤 반으로 나누면, 마지막엔 1이 됩니다. 예를 들어 10이 있다면 다음과 같은 과정으로 1이 됩니다.
-
-10 / 2 = 5
-(5 - 1) / 2 = 4
-4 / 2 = 2
-2 / 2 = 1
-위와 같이 4번의 나누기 연산으로 1이 되었습니다.
-
-정수들이 담긴 리스트 num_list가 주어질 때, num_list의 모든 원소를 1로 만들기 위해서 필요한 나누기 연산의 횟수를 return하도록 solution 함수를 완성해주세요.
+정수가 담긴 리스트 num_list가 주어질 때, 리스트의 길이가 11 이상이면 리스트에 있는 모든 원소의 합을 10 이하이면 모든 원소의 곱을 return하도록 solution 함수를 완성해주세요.
 
 제한사항
-3 ≤ num_list의 길이 ≤ 15
-1 ≤ num_list의 원소 ≤ 30
+2 ≤ num_list의 길이 ≤ 20
+1 ≤ num_list의 원소 ≤ 9
 
 
 */
 
 function solution(num_list) {
-  let count = 0;
-  num_list.map((n) => {
-    while (true) {
-      if (n === 1) break;
-      count++;
-      n % 2 ? (n = (n - 1) / 2) : (n = n / 2);
-    }
-  });
-  return count;
+  var answer = [...num_list];
+  return answer.length > 10
+    ? answer.reduce((acc, curr) => acc + curr)
+    : answer.reduce((acc, curr) => acc * curr);
 }
