@@ -1,13 +1,16 @@
 /*
 
 문제 설명
-영소문자로 이루어진 문자열 my_string과 영소문자 1글자로 이루어진 문자열 alp가 매개변수로 주어질 때, my_string에서 alp에 해당하는 모든 글자를 대문자로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요.
+문자열 myString과 pat가 주어집니다. myString의 부분 문자열중 pat로 끝나는 가장 긴 부분 문자열을 찾아서 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-1 ≤ my_string의 길이 ≤ 1,000
+5 ≤ myString ≤ 20
+1 ≤ pat ≤ 5
+pat은 반드시 myString의 부분 문자열로 주어집니다.
+myString과 pat에 등장하는 알파벳은 대문자와 소문자를 구분합니다.
 
 
 */
 
-const solution = (my_string, alp) =>
-  my_string.replaceAll(alp, alp.toUpperCase());
+const solution = (myString, pat) =>
+  myString.slice(0, myString.lastIndexOf(pat)) + pat;
