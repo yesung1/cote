@@ -1,21 +1,13 @@
 /*
 
 문제 설명
-문자열 myString이 주어집니다. myString에서 알파벳 "a"가 등장하면 전부 "A"로 변환하고, "A"가 아닌 모든 대문자 알파벳은 소문자 알파벳으로 변환하여 return 하는 solution 함수를 완성하세요.
+영소문자로 이루어진 문자열 my_string과 영소문자 1글자로 이루어진 문자열 alp가 매개변수로 주어질 때, my_string에서 alp에 해당하는 모든 글자를 대문자로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요.
 
 제한사항
-1 ≤ myString의 길이 ≤ 20
-myString은 알파벳으로 이루어진 문자열입니다.
+1 ≤ my_string의 길이 ≤ 1,000
 
 
 */
 
-function solution(myString) {
-  var answer = "";
-  answer = [...myString].map((v) => {
-    v = v.toLowerCase();
-    if (v === "a" || v === "A") v = v.toUpperCase();
-    return v;
-  });
-  return answer.join("");
-}
+const solution = (my_string, alp) =>
+  my_string.replaceAll(alp, alp.toUpperCase());
