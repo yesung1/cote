@@ -1,31 +1,22 @@
 /*
 
 문제 설명
-문자열 binomial이 매개변수로 주어집니다. binomial은 "a op b" 형태의 이항식이고 a와 b는 음이 아닌 정수, op는 '+', '-', '*' 중 하나입니다. 주어진 식을 계산한 정수를 return 하는 solution 함수를 작성해 주세요.
+문자 "A"와 "B"로 이루어진 문자열 myString과 pat가 주어집니다. myString의 "A"를 "B"로, "B"를 "A"로 바꾼 문자열의 연속하는 부분 문자열 중 pat이 있으면 1을 아니면 0을 return 하는 solution 함수를 완성하세요.
 
 제한사항
-0 ≤ a, b ≤ 40,000
-0을 제외하고 a, b는 0으로 시작하지 않습니다.
+1 ≤ myString의 길이 ≤ 100
+1 ≤ pat의 길이 ≤ 10
+myString과 pat는 문자 "A"와 "B"로만 이루어진 문자열입니다.
 
 
 */
 
-function solution(binomial) {
-  var answer = 0;
-  let s = binomial.split(" ");
-  let n1 = Number(s[0]);
-  let op = s[1];
-  let n2 = Number(s[2]);
-  switch (op) {
-    case "-":
-      answer = n1 - n2;
-      break;
-    case "+":
-      answer = n1 + n2;
-      break;
-    case "*":
-      answer = n1 * n2;
-      break;
-  }
+function solution(myString, pat) {
+  var answer = "";
+  [...myString].map((item, i) => {
+    item === "A" ? (answer += "B") : (answer += "A");
+  });
+  console.log(answer);
+  answer = answer.includes(pat) === true ? 1 : 0;
   return answer;
 }
