@@ -2,30 +2,28 @@
 
 
 문제 설명
-0과 1로만 이루어진 정수 배열 arr가 주어집니다. arr를 이용해 새로운 배열 stk을 만드려고 합니다.
+랜덤으로 서로 다른 k개의 수를 저장한 배열을 만드려고 합니다. 적절한 방법이 떠오르지 않기 때문에 일정한 범위 내에서 무작위로 수를 뽑은 후, 지금까지 나온적이 없는 수이면 배열 맨 뒤에 추가하는 방식으로 만들기로 합니다.
 
-i의 초기값을 0으로 설정하고 i가 arr의 길이보다 작으면 다음을 반복합니다.
+이미 어떤 수가 무작위로 주어질지 알고 있다고 가정하고, 실제 만들어질 길이 k의 배열을 예상해봅시다.
 
-만약 stk이 빈 배열이라면 arr[i]를 stk에 추가하고 i에 1을 더합니다.
-stk에 원소가 있고, stk의 마지막 원소가 arr[i]와 같으면 stk의 마지막 원소를 stk에서 제거하고 i에 1을 더합니다.
-stk에 원소가 있는데 stk의 마지막 원소가 arr[i]와 다르면 stk의 맨 마지막에 arr[i]를 추가하고 i에 1을 더합니다.
-위 작업을 마친 후 만들어진 stk을 return 하는 solution 함수를 완성해 주세요.
+정수 배열 arr가 주어집니다. 문제에서의 무작위의 수는 arr에 저장된 순서대로 주어질 예정이라고 했을 때, 완성될 배열을 return 하는 solution 함수를 완성해 주세요.
 
-단, 만약 빈 배열을 return 해야한다면 [-1]을 return 합니다.
+단, 완성될 배열의 길이가 k보다 작으면 나머지 값을 전부 -1로 채워서 return 합니다.
 
 제한사항
-1 ≤ arr의 길이 ≤ 1,000,000
-arr의 원소는 0 또는 1 입니다.
+1 ≤ arr의 길이 ≤ 100,000
+0 ≤ arr의 원소 ≤ 100,000
+1 ≤ k ≤ 1,000
+
 
 
 
 
 */
 
-function solution(arr) {
-  var answer = [];
-  arr.map((n, i) => {
-    answer[answer.length - 1] === arr[i] ? answer.pop() : answer.push(arr[i]);
-  });
-  return answer.length ? answer : [-1];
+function solution(arr, k) {
+  let [...n] = new Set(arr);
+  return k > n.length
+    ? [...n, ...new Array(k - n.length).fill(-1)]
+    : n.splice(0, k);
 }
