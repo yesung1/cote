@@ -2,12 +2,11 @@
 
 
 문제 설명
-정수 배열 arr과 정수 n이 매개변수로 주어집니다. arr의 길이가 홀수라면 arr의 모든 짝수 인덱스 위치에 n을 더한 배열을, arr의 길이가 짝수라면 arr의 모든 홀수 인덱스 위치에 n을 더한 배열을 return 하는 solution 함수를 작성해 주세요.
+정수로 이루어진 리스트 num_list가 주어집니다. num_list에서 가장 작은 5개의 수를 오름차순으로 담은 리스트를 return하도록 solution 함수를 완성해주세요.
 
 제한사항
-1 ≤ arr의 길이 ≤ 1,000
-1 ≤ arr의 원소 ≤ 1,000
-1 ≤ n ≤ 1,000
+6 ≤ num_list의 길이 ≤ 30
+1 ≤ num_list의 원소 ≤ 100
 
 
 
@@ -15,10 +14,8 @@
 
 */
 
-function solution(arr, n) {
-  let leng1 = arr.length % 2 ? 0 : 1;
-  for (let x = leng1; x < arr.length; x += 2) {
-    arr[x] += n;
-  }
-  return arr;
-}
+const solution = (num_list) =>
+  num_list
+    .sort((a, b) => b - a)
+    .splice(-5)
+    .reverse();
