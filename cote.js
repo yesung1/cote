@@ -1,14 +1,16 @@
 /*
 
 문제 설명
-어떤 문자열 A가 다른 문자열 B안에 속하면 A를 B의 부분 문자열이라고 합니다. 예를 들어 문자열 "abc"는 문자열 "aabcc"의 부분 문자열입니다.
+문자열들이 담긴 리스트가 주어졌을 때, 모든 문자열들을 순서대로 합친 문자열을 꼬리 문자열이라고 합니다. 꼬리 문자열을 만들 때 특정 문자열을 포함한 문자열은 제외시키려고 합니다. 예를 들어 문자열 리스트 ["abc", "def", "ghi"]가 있고 문자열 "ef"를 포함한 문자열은 제외하고 꼬리 문자열을 만들면 "abcghi"가 됩니다.
 
-문자열 str1과 str2가 주어질 때, str1이 str2의 부분 문자열이라면 1을 부분 문자열이 아니라면 0을 return하도록 solution 함수를 완성해주세요.
+문자열 리스트 str_list와 제외하려는 문자열 ex가 주어질 때, str_list에서 ex를 포함한 문자열을 제외하고 만든 꼬리 문자열을 return하도록 solution 함수를 완성해주세요.
 
-제한 사항
-1 ≤ str1 ≤ str2 ≤ 20
-str1과 str2는 영어 소문자로만 이루어져 있습니다.
+제한사항
+2 ≤ str_list의 길이 ≤ 10
+1 ≤ str_list의 원소의 길이 ≤ 10
+1 ≤ ex의 길이 ≤ 5
 
 */
 
-const solution = (str1, str2) => (str2.includes(str1) ? 1 : 0);
+const solution = (str_list, ex) =>
+  str_list.filter((str) => !str.includes(ex)).join("");
