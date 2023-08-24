@@ -1,24 +1,17 @@
 /*
 
 문제 설명
-1부터 6까지 숫자가 적힌 주사위가 두 개 있습니다. 두 주사위를 굴렸을 때 나온 숫자를 각각 a, b라고 했을 때 얻는 점수는 다음과 같습니다.
+정수 배열 date1과 date2가 주어집니다. 두 배열은 각각 날짜를 나타내며 [year, month, day] 꼴로 주어집니다. 각 배열에서 year는 연도를, month는 월을, day는 날짜를 나타냅니다.
 
-a와 b가 모두 홀수라면 a2 + b2 점을 얻습니다.
-a와 b 중 하나만 홀수라면 2 × (a + b) 점을 얻습니다.
-a와 b 모두 홀수가 아니라면 |a - b| 점을 얻습니다.
-두 정수 a와 b가 매개변수로 주어질 때, 얻는 점수를 return 하는 solution 함수를 작성해 주세요.
+만약 date1이 date2보다 앞서는 날짜라면 1을, 아니면 0을 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-a와 b는 1 이상 6 이하의 정수입니다.
+date1의 길이 = date2의 길이 = 3
+0 ≤ year ≤ 10,000
+1 ≤ month ≤ 12
+day는 month에 따라 가능한 날짜로 주어집니다.
 
 
 */
 
-function solution(a, b) {
-  let n1 = a % 2;
-  let n2 = b % 2;
-  let answer = 0;
-  if (n1 && n2) return (answer = a ** 2 + b ** 2);
-  if (n1 || n2) return (answer = 2 * (a + b));
-  return (answer = Math.abs(a - b));
-}
+const solution = (date1, date2) => (new Date(date1) < new Date(date2) ? 1 : 0);
