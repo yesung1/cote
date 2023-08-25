@@ -1,13 +1,20 @@
 /*
 
 문제 설명
-알파벳 소문자로 이루어진 문자열 myString이 주어집니다. 알파벳 순서에서 "l"보다 앞서는 모든 문자를 "l"로 바꾼 문자열을 return 하는 solution 함수를 완성해 주세요.
+정수 n이 매개변수로 주어질 때, 다음과 같은 n × n 크기의 이차원 배열 arr를 return 하는 solution 함수를 작성해 주세요.
 
+arr[i][j] (0 ≤ i, j < n)의 값은 i = j라면 1, 아니라면 0입니다.
 제한사항
-1 ≤ myString ≤ 100,000
-myString은 알파벳 소문자로 이루어진 문자열입니다.
+1 ≤ n ≤ 100
 
 
 */
 
-const solution = (myString) => myString.replace(/[a-k]/g, "l");
+function solution(n) {
+  let answer = [];
+  const arr1 = Array.from(Array(n), () => new Array(n).fill(0));
+  for (let x = 0; x < arr1.length; x++) {
+    arr1[x][x] = 1;
+  }
+  return (answer = arr1);
+}
