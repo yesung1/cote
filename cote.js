@@ -1,22 +1,18 @@
 /*
 
 문제 설명
-직사각형 형태의 그림 파일이 있고, 이 그림 파일은 1 × 1 크기의 정사각형 크기의 픽셀로 이루어져 있습니다. 이 그림 파일을 나타낸 문자열 배열 picture과 정수 k가 매개변수로 주어질 때, 이 그림 파일을 가로 세로로 k배 늘린 그림 파일을 나타내도록 문자열 배열을 return 하는 solution 함수를 작성해 주세요.
+정수 배열 arr와 자연수 k가 주어집니다.
+
+만약 k가 홀수라면 arr의 모든 원소에 k를 곱하고, k가 짝수라면 arr의 모든 원소에 k를 더합니다.
+
+이러한 변환을 마친 후의 arr를 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-1 ≤ picture의 길이 ≤ 20
-1 ≤ picture의 원소의 길이 ≤ 20
-모든 picture의 원소의 길이는 같습니다.
-picture의 원소는 '.'과 'x'로 이루어져 있습니다.
-1 ≤ k ≤ 10
+1 ≤ arr의 길이 ≤ 1,000,000
+1 ≤ arr의 원소의 값 ≤ 100
+1 ≤ k ≤ 100
 
 
 */
 
-function solution(picture, k) {
-  var answer = [];
-  for (let p of picture) {
-    answer.push(...Array(k).fill([...p].map((n) => n.repeat(k)).join("")));
-  }
-  return answer;
-}
+const solution = (arr, k) => arr.map((a) => (k % 2 ? a * k : a + k));
