@@ -1,18 +1,13 @@
 /*
 
 문제 설명
-정수 배열 arr와 자연수 k가 주어집니다.
-
-만약 k가 홀수라면 arr의 모든 원소에 k를 곱하고, k가 짝수라면 arr의 모든 원소에 k를 더합니다.
-
-이러한 변환을 마친 후의 arr를 return 하는 solution 함수를 완성해 주세요.
+알파벳 소문자로 이루어진 문자열 myString이 주어집니다. 알파벳 순서에서 "l"보다 앞서는 모든 문자를 "l"로 바꾼 문자열을 return 하는 solution 함수를 완성해 주세요.
 
 제한사항
-1 ≤ arr의 길이 ≤ 1,000,000
-1 ≤ arr의 원소의 값 ≤ 100
-1 ≤ k ≤ 100
+1 ≤ myString ≤ 100,000
+myString은 알파벳 소문자로 이루어진 문자열입니다.
 
 
 */
 
-const solution = (arr, k) => arr.map((a) => (k % 2 ? a * k : a + k));
+const solution = (myString) => myString.replace(/[a-k]/g, "l");
