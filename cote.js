@@ -1,20 +1,43 @@
 /*
 
 문제 설명
-정수 n이 매개변수로 주어질 때, 다음과 같은 n × n 크기의 이차원 배열 arr를 return 하는 solution 함수를 작성해 주세요.
+양의 정수 n이 매개변수로 주어집니다. n × n 배열에 1부터 n2 까지 정수를 인덱스 [0][0]부터 시계방향 나선형으로 배치한 이차원 배열을 return 하는 solution 함수를 작성해 주세요.
 
-arr[i][j] (0 ≤ i, j < n)의 값은 i = j라면 1, 아니라면 0입니다.
 제한사항
-1 ≤ n ≤ 100
+1 ≤ n ≤ 30
 
 
 */
 
 function solution(n) {
-  let answer = [];
-  const arr1 = Array.from(Array(n), () => new Array(n).fill(0));
-  for (let x = 0; x < arr1.length; x++) {
-    arr1[x][x] = 1;
+  const matrix = new Array(n).fill().map(() => new Array(n).fill(0));
+  let left = 0;
+  let right = n - 1;
+  let top = 0;
+  let bottom = n - 1;
+  let num = 1;
+
+  while (left <= right && top <= bottom) {
+    for (let i = left; i <= right; i++) {
+      matrix[top][i] = num;
+      num++;
+    }
+    top++;
+    for (let i = top; i <= bottom; i++) {
+      matrix[i][right] = num;
+      num++;
+    }
+    right--;
+    for (let i = right; i >= left; i--) {
+      matrix[bottom][i] = num;
+      num++;
+    }
+    bottom--;
+    for (let i = bottom; i >= top; i--) {
+      matrix[i][left] = num;
+      num++;
+    }
+    left++;
   }
-  return (answer = arr1);
+  return matrix;
 }
