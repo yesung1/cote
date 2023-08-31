@@ -1,28 +1,17 @@
 /*
 
-
 문제 설명
-머쓱이네 옷가게는 10만 원 이상 사면 5%, 30만 원 이상 사면 10%, 50만 원 이상 사면 20%를 할인해줍니다.
-구매한 옷의 가격 price가 주어질 때, 지불해야 할 금액을 return 하도록 solution 함수를 완성해보세요.
+머쓱이는 추운 날에도 아이스 아메리카노만 마십니다. 아이스 아메리카노는 한잔에 5,500원입니다. 머쓱이가 가지고 있는 돈 money가 매개변수로 주어질 때, 머쓱이가 최대로 마실 수 있는 아메리카노의 잔 수와 남는 돈을 순서대로 담은 배열을 return 하도록 solution 함수를 완성해보세요.
 
 제한사항
-10 ≤ price ≤ 1,000,000
-price는 10원 단위로(1의 자리가 0) 주어집니다.
-소수점 이하를 버린 정수를 return합니다.
+0 < money ≤ 1,000,000
+
 
 
 */
 
-function solution(price) {
-  let discount = 0;
-  if (price >= 500000) {
-    discount = 0.2;
-  } else if (price >= 300000) {
-    discount = 0.1;
-  } else if (price >= 100000) {
-    discount = 0.05;
-  }
-
-  const answer = Math.floor(price - price * discount);
-  return answer;
+function solution(money) {
+  let a = Math.floor(money / 5500);
+  let b = money % 5500;
+  return [a, b];
 }
