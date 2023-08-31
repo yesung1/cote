@@ -1,15 +1,13 @@
 /*
 
 문제 설명
-머쓱이는 40살인 선생님이 몇 년도에 태어났는지 궁금해졌습니다. 나이 age가 주어질 때, 2022년을 기준 출생 연도를 return 하는 solution 함수를 완성해주세요.
+정수가 들어 있는 배열 num_list가 매개변수로 주어집니다. num_list의 원소의 순서를 거꾸로 뒤집은 배열을 return하도록 solution 함수를 완성해주세요.
 
 제한사항
-0 < age ≤ 120
-나이는 태어난 연도에 1살이며 1년마다 1씩 증가합니다.
-
-
+1 ≤ num_list의 길이 ≤ 1,000
+0 ≤ num_list의 원소 ≤ 1,000
 
 
 */
 
-const solution = (age) => new Date().getFullYear() - age;
+const solution = (num_list) => num_list.reverse();
