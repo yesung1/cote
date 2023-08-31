@@ -2,14 +2,27 @@
 
 
 문제 설명
-정수 배열 numbers가 매개변수로 주어집니다. numbers의 원소의 평균값을 return하도록 solution 함수를 완성해주세요.
+머쓱이네 옷가게는 10만 원 이상 사면 5%, 30만 원 이상 사면 10%, 50만 원 이상 사면 20%를 할인해줍니다.
+구매한 옷의 가격 price가 주어질 때, 지불해야 할 금액을 return 하도록 solution 함수를 완성해보세요.
 
 제한사항
-0 ≤ numbers의 원소 ≤ 1,000
-1 ≤ numbers의 길이 ≤ 100
-정답의 소수 부분이 .0 또는 .5인 경우만 입력으로 주어집니다.
+10 ≤ price ≤ 1,000,000
+price는 10원 단위로(1의 자리가 0) 주어집니다.
+소수점 이하를 버린 정수를 return합니다.
+
 
 */
 
-const solution = (numbers) =>
-  numbers.reduce((acc, curr) => acc + curr, 0) / numbers.length;
+function solution(price) {
+  let discount = 0;
+  if (price >= 500000) {
+    discount = 0.2;
+  } else if (price >= 300000) {
+    discount = 0.1;
+  } else if (price >= 100000) {
+    discount = 0.05;
+  }
+
+  const answer = Math.floor(price - price * discount);
+  return answer;
+}
