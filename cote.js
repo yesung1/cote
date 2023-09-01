@@ -1,18 +1,18 @@
 /*
 
 문제 설명
-외과의사 머쓱이는 응급실에 온 환자의 응급도를 기준으로 진료 순서를 정하려고 합니다. 정수 배열 emergency가 매개변수로 주어질 때 응급도가 높은 순서대로 진료 순서를 정한 배열을 return하도록 solution 함수를 완성해주세요.
+순서쌍이란 두 개의 숫자를 순서를 정하여 짝지어 나타낸 쌍으로 (a, b)로 표기합니다. 자연수 n이 매개변수로 주어질 때 두 숫자의 곱이 n인 자연수 순서쌍의 개수를 return하도록 solution 함수를 완성해주세요.
 
 제한사항
-중복된 원소는 없습니다.
-1 ≤ emergency의 길이 ≤ 10
-1 ≤ emergency의 원소 ≤ 100
+1 ≤ n ≤ 1,000,000
 
 
 */
-function solution(emergency) {
-  var answer = [];
-  let desc = [...emergency].sort((a, b) => b - a);
-  answer = emergency.map((n) => desc.indexOf(n) + 1);
+function solution(n) {
+  let arr = [];
+  for (let x = 0; x <= n; x++) {
+    if (n % x === 0) arr.push(x);
+  }
+  var answer = arr.length;
   return answer;
 }
