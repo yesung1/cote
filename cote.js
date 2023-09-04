@@ -1,21 +1,27 @@
 /*
 
 문제 설명
-머쓱이는 직육면체 모양의 상자를 하나 가지고 있는데 이 상자에 정육면체 모양의 주사위를 최대한 많이 채우고 싶습니다. 상자의 가로, 세로, 높이가 저장되어있는 배열 box와 주사위 모서리의 길이 정수 n이 매개변수로 주어졌을 때, 상자에 들어갈 수 있는 주사위의 최대 개수를 return 하도록 solution 함수를 완성해주세요.
+약수의 개수가 세 개 이상인 수를 합성수라고 합니다. 자연수 n이 매개변수로 주어질 때 n이하의 합성수의 개수를 return하도록 solution 함수를 완성해주세요.
 
 제한사항
-box의 길이는 3입니다.
-box[0] = 상자의 가로 길이
-box[1] = 상자의 세로 길이
-box[2] = 상자의 높이 길이
-1 ≤ box의 원소 ≤ 100
-1 ≤ n ≤ 50
-n ≤ box의 원소
-주사위는 상자와 평행하게 넣습니다.
+1 ≤ n ≤ 100
 
 
 
 */
 
-const solution = (box, n) =>
-  box.reduce((acc, curr) => acc * Math.floor(curr / n), 1);
+function solution(n) {
+  let answer = 0;
+  function isPrime(n) {
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) return true;
+    }
+    return false;
+  }
+
+  for (let i = 0; i <= n; i++) {
+    if (isPrime(i)) answer++;
+  }
+
+  return answer;
+}
