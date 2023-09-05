@@ -1,24 +1,20 @@
 /*
 
 문제 설명
-i팩토리얼 (i!)은 1부터 i까지 정수의 곱을 의미합니다. 예를들어 5! = 5 * 4 * 3 * 2 * 1 = 120 입니다. 정수 n이 주어질 때 다음 조건을 만족하는 가장 큰 정수 i를 return 하도록 solution 함수를 완성해주세요.
+문자열 my_string이 매개변수로 주어질 때, 대문자는 소문자로 소문자는 대문자로 변환한 문자열을 return하도록 solution 함수를 완성해주세요.
 
-i! ≤ n
 제한사항
-0 < n ≤ 3,628,800
+1 ≤ my_string의 길이 ≤ 1,000
+my_string은 영어 대문자와 소문자로만 구성되어 있습니다.
 
 */
 
-function solution(n) {
-  let answer = 1;
-
-  for (let i = 1; i <= n; i++) {
-    answer *= i;
-    if (answer === n) {
-      return i;
-    }
-    if (answer > n) {
-      return i - 1;
-    }
-  }
-}
+const solution = (my_string) =>
+  [...my_string]
+    .map((str) => {
+      str === str.toUpperCase()
+        ? (str = str.toLowerCase())
+        : (str = str.toUpperCase());
+      return str;
+    })
+    .join("");
