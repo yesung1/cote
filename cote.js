@@ -1,17 +1,13 @@
 /*
 
 문제 설명
-정수 배열 array와 정수 n이 매개변수로 주어질 때, array에 들어있는 정수 중 n과 가장 가까운 수를 return 하도록 solution 함수를 완성해주세요.
+머쓱이는 친구들과 369게임을 하고 있습니다. 369게임은 1부터 숫자를 하나씩 대며 3, 6, 9가 들어가는 숫자는 숫자 대신 3, 6, 9의 개수만큼 박수를 치는 게임입니다. 머쓱이가 말해야하는 숫자 order가 매개변수로 주어질 때, 머쓱이가 쳐야할 박수 횟수를 return 하도록 solution 함수를 완성해보세요.
 
 제한사항
-1 ≤ array의 길이 ≤ 100
-1 ≤ array의 원소 ≤ 100
-1 ≤ n ≤ 100
-가장 가까운 수가 여러 개일 경우 더 작은 수를 return 합니다.
+1 ≤ order ≤ 1,000,000
+
 
 */
 
-function solution(array, n) {
-  array.sort((a, b) => Math.abs(n - a) - Math.abs(n - b) || a - b);
-  return array[0];
-}
+const solution = (order) =>
+  [...String(order)].filter((o) => ["3", "6", "9"].includes(o)).length;
