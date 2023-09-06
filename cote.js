@@ -2,31 +2,18 @@
 
 
 문제 설명
-영어가 싫은 머쓱이는 영어로 표기되어있는 숫자를 수로 바꾸려고 합니다. 문자열 numbers가 매개변수로 주어질 때, numbers를 정수로 바꿔 return 하도록 solution 함수를 완성해 주세요.
+문자열 my_string과 정수 num1, num2가 매개변수로 주어질 때, my_string에서 인덱스 num1과 인덱스 num2에 해당하는 문자를 바꾼 문자열을 return 하도록 solution 함수를 완성해보세요.
 
 제한사항
-numbers는 소문자로만 구성되어 있습니다.
-numbers는 "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" 들이 공백 없이 조합되어 있습니다.
-1 ≤ numbers의 길이 ≤ 50
-"zero"는 numbers의 맨 앞에 올 수 없습니다.
+1 < my_string의 길이 < 100
+0 ≤ num1, num2 < my_string의 길이
+my_string은 소문자로 이루어져 있습니다.
+num1 ≠ num2
 
 */
 
-function solution(numbers) {
-  let strArr = [
-    "zero",
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "eight",
-    "nine",
-  ];
-  strArr.forEach((str, idx) => {
-    numbers = numbers.replaceAll(str, idx);
-  });
-  return Number(numbers);
+function solution(my_string, num1, num2) {
+  my_string = [...my_string];
+  [my_string[num1], my_string[num2]] = [my_string[num2], my_string[num1]];
+  return my_string.join("");
 }
