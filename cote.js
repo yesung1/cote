@@ -2,17 +2,18 @@
 
 
 문제 설명
-문자열 s가 매개변수로 주어집니다. s에서 한 번만 등장하는 문자를 사전 순으로 정렬한 문자열을 return 하도록 solution 함수를 완성해보세요. 한 번만 등장하는 문자가 없을 경우 빈 문자열을 return 합니다.
+정수 n이 매개변수로 주어질 때, n의 약수를 오름차순으로 담은 배열을 return하도록 solution 함수를 완성해주세요.
 
 제한사항
-0 < s의 길이 < 1,000
-s는 소문자로만 이루어져 있습니다.
+1 ≤ n ≤ 10,000
+
 
 */
 
-const solution = (s) =>
-  s
-    .split("")
-    .filter((char, _, array) => array.indexOf(char) === array.lastIndexOf(char))
-    .sort()
-    .join("");
+function solution(n) {
+  let answer = [];
+  for (let x = 0; x <= n; x++) {
+    if (n % x === 0) answer.push(x);
+  }
+  return answer;
+}
