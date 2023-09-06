@@ -2,18 +2,17 @@
 
 
 문제 설명
-문자열 my_string과 정수 num1, num2가 매개변수로 주어질 때, my_string에서 인덱스 num1과 인덱스 num2에 해당하는 문자를 바꾼 문자열을 return 하도록 solution 함수를 완성해보세요.
+문자열 s가 매개변수로 주어집니다. s에서 한 번만 등장하는 문자를 사전 순으로 정렬한 문자열을 return 하도록 solution 함수를 완성해보세요. 한 번만 등장하는 문자가 없을 경우 빈 문자열을 return 합니다.
 
 제한사항
-1 < my_string의 길이 < 100
-0 ≤ num1, num2 < my_string의 길이
-my_string은 소문자로 이루어져 있습니다.
-num1 ≠ num2
+0 < s의 길이 < 1,000
+s는 소문자로만 이루어져 있습니다.
 
 */
 
-function solution(my_string, num1, num2) {
-  my_string = [...my_string];
-  [my_string[num1], my_string[num2]] = [my_string[num2], my_string[num1]];
-  return my_string.join("");
-}
+const solution = (s) =>
+  s
+    .split("")
+    .filter((char, _, array) => array.indexOf(char) === array.lastIndexOf(char))
+    .sort()
+    .join("");
