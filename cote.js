@@ -2,15 +2,17 @@
 
 
 문제 설명
-두 배열이 얼마나 유사한지 확인해보려고 합니다. 문자열 배열 s1과 s2가 주어질 때 같은 원소의 개수를 return하도록 solution 함수를 완성해주세요.
+정수 num과 k가 매개변수로 주어질 때, num을 이루는 숫자 중에 k가 있으면 num의 그 숫자가 있는 자리 수를 return하고 없으면 -1을 return 하도록 solution 함수를 완성해보세요.
 
 제한사항
-1 ≤ s1, s2의 길이 ≤ 100
-1 ≤ s1, s2의 원소의 길이 ≤ 10
-s1과 s2의 원소는 알파벳 소문자로만 이루어져 있습니다
-s1과 s2는 각각 중복된 원소를 갖지 않습니다.
-
+0 < num < 1,000,000
+0 ≤ k < 10
+num에 k가 여러 개 있으면 가장 처음 나타나는 자리를 return 합니다.
 
 */
 
-const solution = (s1, s2) => s1.filter((n) => s2.includes(n)).length;
+function solution(num, k) {
+  var answer = 0;
+  answer = String(num).indexOf(k);
+  return answer >= 0 ? answer + 1 : -1;
+}
