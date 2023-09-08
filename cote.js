@@ -3,21 +3,15 @@
 
 
 문제 설명
-문자열 my_str과 n이 매개변수로 주어질 때, my_str을 길이 n씩 잘라서 저장한 배열을 return하도록 solution 함수를 완성해주세요.
+정수가 담긴 배열 array와 정수 n이 매개변수로 주어질 때, array에 n이 몇 개 있는 지를 return 하도록 solution 함수를 완성해보세요.
 
 제한사항
-1 ≤ my_str의 길이 ≤ 100
-1 ≤ n ≤ my_str의 길이
-my_str은 알파벳 소문자, 대문자, 숫자로 이루어져 있습니다.
+1 ≤ array의 길이 ≤ 100
+0 ≤ array의 원소 ≤ 1,000
+0 ≤ n ≤ 1,000
 
 
 
 */
 
-function solution(my_str, n) {
-  var answer = [];
-  for (let x = 0; x < my_str.length; x += n) {
-    answer.push(my_str.slice(x, x + n));
-  }
-  return answer;
-}
+const solution = (array, n) => array.filter((arr) => arr === n).length;
