@@ -1,19 +1,24 @@
 /*
 
 문제 설명
-영어 점수와 수학 점수의 평균 점수를 기준으로 학생들의 등수를 매기려고 합니다. 영어 점수와 수학 점수를 담은 2차원 정수 배열 score가 주어질 때, 영어 점수와 수학 점수의 평균을 기준으로 매긴 등수를 담은 배열을 return하도록 solution 함수를 완성해주세요.
+머쓱이는 태어난 지 6개월 된 조카를 돌보고 있습니다. 조카는 아직 "aya", "ye", "woo", "ma" 네 가지 발음을 최대 한 번씩 사용해 조합한(이어 붙인) 발음밖에 하지 못합니다. 문자열 배열 babbling이 매개변수로 주어질 때, 머쓱이의 조카가 발음할 수 있는 단어의 개수를 return하도록 solution 함수를 완성해주세요.
 
 제한사항
-0 ≤ score[0], score[1] ≤ 100
-1 ≤ score의 길이 ≤ 10
-score의 원소 길이는 2입니다.
-score는 중복된 원소를 갖지 않습니다.
+1 ≤ babbling의 길이 ≤ 100
+1 ≤ babbling[i]의 길이 ≤ 15
+babbling의 각 문자열에서 "aya", "ye", "woo", "ma"는 각각 최대 한 번씩만 등장합니다.
+즉, 각 문자열의 가능한 모든 부분 문자열 중에서 "aya", "ye", "woo", "ma"가 한 번씩만 등장합니다.
+문자열은 알파벳 소문자로만 이루어져 있습니다.
 
 
 */
 
-function solution(score) {
-  let sum = score.map((v) => v[0] + v[1]);
-  let sumArr = sum.slice().sort((a, b) => b - a);
-  return sum.map((v) => sumArr.indexOf(v) + 1);
+function solution(babbling) {
+  var answer = 0;
+  for (let x = 0; x < babbling.length; x++) {
+    if (babbling[x].replace(/aya|ye|woo|ma/gi, "").trim() === "") {
+      answer++;
+    }
+  }
+  return answer;
 }
