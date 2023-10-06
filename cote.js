@@ -1,17 +1,23 @@
 /*
 
 문제 설명
-연속된 세 개의 정수를 더해 12가 되는 경우는 3, 4, 5입니다. 두 정수 num과 total이 주어집니다. 연속된 수 num개를 더한 값이 total이 될 때, 정수 배열을 오름차순으로 담아 return하도록 solution함수를 완성해보세요.
+등차수열 혹은 등비수열 common이 매개변수로 주어질 때, 마지막 원소 다음으로 올 숫자를 return 하도록 solution 함수를 완성해보세요.
 
 제한사항
-1 ≤ num ≤ 100
-0 ≤ total ≤ 1000
-num개의 연속된 수를 더하여 total이 될 수 없는 테스트 케이스는 없습니다.
+2 < common의 길이 < 1,000
+-1,000 < common의 원소 < 2,000
+common의 원소는 모두 정수입니다.
+등차수열 혹은 등비수열이 아닌 경우는 없습니다.
+등비수열인 경우 공비는 0이 아닌 정수입니다.
 
 
 */
 
-function solution(num, total) {
-  const min = Math.ceil(total / num - Math.floor(num / 2));
-  return Array.from({ length: num }, (_, i) => i + min);
+function solution(common) {
+  let c = common;
+  if (c[0] - c[1] === c[1] - c[2]) {
+    return c.pop() + c[1] - c[0];
+  } else {
+    return c.pop() * (c[1] / c[0]);
+  }
 }
