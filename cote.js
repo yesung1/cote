@@ -1,20 +1,14 @@
 /*
 
 문제 설명
-자연수 n이 매개변수로 주어집니다. n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요. 답이 항상 존재함은 증명될 수 있습니다.
+정수를 담고 있는 배열 arr의 평균값을 return하는 함수, solution을 완성해보세요.
 
 제한사항
-3 ≤ n ≤ 1,000,000
+arr은 길이 1 이상, 100 이하인 배열입니다.
+arr의 원소는 -10,000 이상 10,000 이하인 정수입니다.
 
 
 
 */
 
-function solution(n) {
-  var answer = 0;
-  while (n > answer) {
-    answer++;
-    if (n % answer === 1) break;
-  }
-  return answer;
-}
+const solution = (arr) => arr.reduce((acc, curr) => acc + curr) / arr.length;
