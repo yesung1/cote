@@ -1,14 +1,20 @@
 /*
 
 문제 설명
-정수 num이 짝수일 경우 "Even"을 반환하고 홀수인 경우 "Odd"를 반환하는 함수, solution을 완성해주세요.
+자연수 n이 매개변수로 주어집니다. n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요. 답이 항상 존재함은 증명될 수 있습니다.
 
-제한 조건
-num은 int 범위의 정수입니다.
-0은 짝수입니다.
+제한사항
+3 ≤ n ≤ 1,000,000
 
 
 
 */
 
-const solution = (num) => (num % 2 ? "Odd" : "Even");
+function solution(n) {
+  var answer = 0;
+  while (n > answer) {
+    answer++;
+    if (n % answer === 1) break;
+  }
+  return answer;
+}
