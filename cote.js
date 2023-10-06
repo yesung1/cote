@@ -1,11 +1,17 @@
 /*
 
 문제 설명
-머쓱이는 큰 종이를 1 x 1 크기로 자르려고 합니다. 예를 들어 2 x 2 크기의 종이를 1 x 1 크기로 자르려면 최소 가위질 세 번이 필요합니다.
+연속된 세 개의 정수를 더해 12가 되는 경우는 3, 4, 5입니다. 두 정수 num과 total이 주어집니다. 연속된 수 num개를 더한 값이 total이 될 때, 정수 배열을 오름차순으로 담아 return하도록 solution함수를 완성해보세요.
 
-정수 M, N이 매개변수로 주어질 때, M x N 크기의 종이를 최소로 가위질 해야하는 횟수를 return 하도록 solution 함수를 완성해보세요.
+제한사항
+1 ≤ num ≤ 100
+0 ≤ total ≤ 1000
+num개의 연속된 수를 더하여 total이 될 수 없는 테스트 케이스는 없습니다.
 
 
 */
 
-const solution = (M, N) => M * N - 1;
+function solution(num, total) {
+  const min = Math.ceil(total / num - Math.floor(num / 2));
+  return Array.from({ length: num }, (_, i) => i + min);
+}
