@@ -11,9 +11,7 @@ n은 0 이상 3000이하인 정수입니다.
 */
 
 function solution(x, n) {
-  var answer = [];
-  for (let i = 1; i <= n; i++) {
-    answer.push(x * i);
-  }
-  return answer;
+  return Array(n)
+    .fill(x)
+    .map((a, i) => (i + 1) * a);
 }
