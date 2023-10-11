@@ -10,4 +10,4 @@ phone_number는 길이 4 이상, 20이하인 문자열입니다.
 */
 
 const solution = (phone_number) =>
-  "*".repeat(phone_number.length - 4) + phone_number.slice(-4);
+  [...phone_number].fill("*", 0, phone_number.length - 4).join("");
