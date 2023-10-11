@@ -12,9 +12,8 @@ signs[i] 가 참이면 absolutes[i] 의 실제 정수가 양수임을, 그렇지
 */
 
 function solution(absolutes, signs) {
-  var answer = 0;
-  for (let x = 0; x < signs.length; x++) {
-    signs[x] ? (answer += absolutes[x]) : (answer -= absolutes[x]);
-  }
-  return answer;
+  return absolutes.reduce(
+    (acc, curr, i) => acc + curr * (signs[i] ? 1 : -1),
+    0
+  );
 }
