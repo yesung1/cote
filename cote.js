@@ -1,13 +1,16 @@
 /*
 
 문제 설명
-정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요. 단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요. 예를들어 arr이 [4,3,2,1]인 경우는 [4,3,2]를 리턴 하고, [10]면 [-1]을 리턴 합니다.
+단어 s의 가운데 글자를 반환하는 함수, solution을 만들어 보세요. 단어의 길이가 짝수라면 가운데 두글자를 반환하면 됩니다.
 
-제한 조건
-arr은 길이 1 이상인 배열입니다.
-인덱스 i, j에 대해 i ≠ j이면 arr[i] ≠ arr[j] 입니다.
+재한사항
+s는 길이가 1 이상, 100이하인 스트링입니다.
 
 */
 
-const solution = (arr) =>
-  arr.length > 1 ? arr.filter((n) => n !== Math.min(...arr)) : [-1];
+function solution(s) {
+  let sl = s.length;
+  return sl % 2
+    ? s.charAt(Math.floor(sl / 2))
+    : s.substring(sl / 2 - 1, sl / 2 + 1);
+}
