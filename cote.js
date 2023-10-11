@@ -1,18 +1,13 @@
 /*
 
 문제 설명
-array의 각 element 중 divisor로 나누어 떨어지는 값을 오름차순으로 정렬한 배열을 반환하는 함수, solution을 작성해주세요.
-divisor로 나누어 떨어지는 element가 하나도 없다면 배열에 -1을 담아 반환하세요.
+프로그래머스 모바일은 개인정보 보호를 위해 고지서를 보낼 때 고객들의 전화번호의 일부를 가립니다.
+전화번호가 문자열 phone_number로 주어졌을 때, 전화번호의 뒷 4자리를 제외한 나머지 숫자를 전부 *으로 가린 문자열을 리턴하는 함수, solution을 완성해주세요.
 
-제한사항
-arr은 자연수를 담은 배열입니다.
-정수 i, j에 대해 i ≠ j 이면 arr[i] ≠ arr[j] 입니다.
-divisor는 자연수입니다.
-array는 길이 1 이상인 배열입니다.
+제한 조건
+phone_number는 길이 4 이상, 20이하인 문자열입니다.
 
 */
 
-const solution = (arr, divisor) =>
-  arr.filter((n) => n % divisor === 0).length
-    ? arr.filter((n) => n % divisor === 0).sort((a, b) => a - b)
-    : [-1];
+const solution = (phone_number) =>
+  "*".repeat(phone_number.length - 4) + phone_number.slice(-4);
