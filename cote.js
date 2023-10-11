@@ -1,14 +1,20 @@
 /*
 
 문제 설명
-String형 배열 seoul의 element중 "Kim"의 위치 x를 찾아, "김서방은 x에 있다"는 String을 반환하는 함수, solution을 완성하세요. seoul에 "Kim"은 오직 한 번만 나타나며 잘못된 값이 입력되는 경우는 없습니다.
+어떤 정수들이 있습니다. 이 정수들의 절댓값을 차례대로 담은 정수 배열 absolutes와 이 정수들의 부호를 차례대로 담은 불리언 배열 signs가 매개변수로 주어집니다. 실제 정수들의 합을 구하여 return 하도록 solution 함수를 완성해주세요.
 
-제한 사항
-seoul은 길이 1 이상, 1000 이하인 배열입니다.
-seoul의 원소는 길이 1 이상, 20 이하인 문자열입니다.
-"Kim"은 반드시 seoul 안에 포함되어 있습니다.
+제한사항
+absolutes의 길이는 1 이상 1,000 이하입니다.
+absolutes의 모든 수는 각각 1 이상 1,000 이하입니다.
+signs의 길이는 absolutes의 길이와 같습니다.
+signs[i] 가 참이면 absolutes[i] 의 실제 정수가 양수임을, 그렇지 않으면 음수임을 의미합니다.
 
 */
 
-const solution = (seoul) =>
-  `김서방은 ${seoul.findIndex((n) => n === "Kim")}에 있다`;
+function solution(absolutes, signs) {
+  var answer = 0;
+  for (let x = 0; x < signs.length; x++) {
+    signs[x] ? (answer += absolutes[x]) : (answer -= absolutes[x]);
+  }
+  return answer;
+}
