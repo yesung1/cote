@@ -13,13 +13,11 @@
 */
 
 function solution(s) {
-  var answer = true;
-  let pNum = 0;
-  let yNum = 0;
-  answer = [...s.toUpperCase()].map((n) => {
-    if (n === "P") pNum++;
-    if (n === "Y") yNum++;
-  });
-  pNum === yNum ? (answer = true) : (answer = false);
-  return answer;
+  return [...s.toLowerCase()].reduce((acc, curr) => {
+    if (curr === "p") return acc + 1;
+    if (curr === "y") return acc - 1;
+    return acc;
+  }, 0)
+    ? false
+    : true;
 }
