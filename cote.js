@@ -1,23 +1,13 @@
 /*
 
 문제 설명
-대문자와 소문자가 섞여있는 문자열 s가 주어집니다. s에 'p'의 개수와 'y'의 개수를 비교해 같으면 True, 다르면 False를 return 하는 solution를 완성하세요. 'p', 'y' 모두 하나도 없는 경우는 항상 True를 리턴합니다. 단, 개수를 비교할 때 대문자와 소문자는 구별하지 않습니다.
+임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다.
+n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.
 
-예를 들어 s가 "pPoooyY"면 true를 return하고 "Pyy"라면 false를 return합니다.
-
-제한사항
-문자열 s의 길이 : 50 이하의 자연수
-문자열 s는 알파벳으로만 이루어져 있습니다.
-
+제한 사항
+n은 1이상, 50000000000000 이하인 양의 정수입니다.
 
 */
 
-function solution(s) {
-  return [...s.toLowerCase()].reduce((acc, curr) => {
-    if (curr === "p") return acc + 1;
-    if (curr === "y") return acc - 1;
-    return acc;
-  }, 0)
-    ? false
-    : true;
-}
+const solution = (n) =>
+  Number.isInteger(Math.sqrt(n)) ? Math.pow(Math.sqrt(n) + 1, 2) : -1;
