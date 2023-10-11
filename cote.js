@@ -9,7 +9,4 @@ n은 길이 10,000이하인 자연수입니다.
 
 */
 
-const solution = (n) =>
-  Number.isInteger(n / 2)
-    ? "수박".repeat(n / 2)
-    : "수박".repeat(Math.floor(n / 2)) + "수";
+const solution = (n) => "수박".repeat(Math.floor(n / 2)) + (n % 2 ? "수" : "");
