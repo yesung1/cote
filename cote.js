@@ -1,14 +1,26 @@
 /*
 
 문제 설명
-양의 정수 x가 하샤드 수이려면 x의 자릿수의 합으로 x가 나누어져야 합니다. 예를 들어 18의 자릿수 합은 1+8=9이고, 18은 9로 나누어 떨어지므로 18은 하샤드 수입니다. 자연수 x를 입력받아 x가 하샤드 수인지 아닌지 검사하는 함수, solution을 완성해주세요.
+두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수, solution을 완성하세요.
+예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
 
 제한 조건
-x는 1 이상, 10000 이하인 정수입니다.
+a와 b가 같은 경우는 둘 중 아무 수나 리턴하세요.
+a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.
+a와 b의 대소관계는 정해져있지 않습니다.
 
 */
 
-const solution = (x) =>
-  x % [...String(x)].reduce((acc, curr) => acc + Number(curr), 0)
-    ? false
-    : true;
+function solution(a, b) {
+  var answer = 0;
+  if (a > b) {
+    answer = a;
+    a = b;
+    b = answer;
+  }
+  answer = 0;
+  for (let x = a; x <= b; x++) {
+    answer += x;
+  }
+  return answer;
+}
