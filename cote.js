@@ -13,14 +13,6 @@ a와 b의 대소관계는 정해져있지 않습니다.
 
 function solution(a, b) {
   var answer = 0;
-  if (a > b) {
-    answer = a;
-    a = b;
-    b = answer;
-  }
-  answer = 0;
-  for (let x = a; x <= b; x++) {
-    answer += x;
-  }
+  for (let x = Math.min(a, b); x <= Math.max(a, b); x++) answer += x;
   return answer;
 }
