@@ -1,16 +1,15 @@
 /*
 
 문제 설명
-단어 s의 가운데 글자를 반환하는 함수, solution을 만들어 보세요. 단어의 길이가 짝수라면 가운데 두글자를 반환하면 됩니다.
+길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
 
-재한사항
-s는 길이가 1 이상, 100이하인 스트링입니다.
+제한 조건
+n은 길이 10,000이하인 자연수입니다.
+
 
 */
 
-function solution(s) {
-  let sl = s.length;
-  return sl % 2
-    ? s.charAt(Math.floor(sl / 2))
-    : s.substring(sl / 2 - 1, sl / 2 + 1);
-}
+const solution = (n) =>
+  Number.isInteger(n / 2)
+    ? "수박".repeat(n / 2)
+    : "수박".repeat(Math.floor(n / 2)) + "수";
