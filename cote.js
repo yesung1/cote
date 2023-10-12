@@ -1,12 +1,19 @@
 /*
 
 문제 설명
-행렬의 덧셈은 행과 열의 크기가 같은 두 행렬의 같은 행, 같은 열의 값을 서로 더한 결과가 됩니다. 2개의 행렬 arr1과 arr2를 입력받아, 행렬 덧셈의 결과를 반환하는 함수, solution을 완성해주세요.
+이 문제에는 표준 입력으로 두 개의 정수 n과 m이 주어집니다.
+별(*) 문자를 이용해 가로의 길이가 n, 세로의 길이가 m인 직사각형 형태를 출력해보세요.
 
 제한 조건
-행렬 arr1, arr2의 행과 열의 길이는 500을 넘지 않습니다.
+n과 m은 각각 1000 이하인 자연수입니다.
+
 
 */
 
-const solution = (arr1, arr2) =>
-  arr1.map((n, i) => n.map((m, j) => m + arr2[i][j]));
+process.stdin.setEncoding("utf8");
+process.stdin.on("data", (data) => {
+  const n = data.split(" ");
+  const a = Number(n[0]),
+    b = Number(n[1]);
+  for (let j = 0; j < b; j++) console.log("*".repeat(a));
+});
