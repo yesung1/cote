@@ -9,7 +9,4 @@ n은 1 이상 100,000,000 이하인 자연수입니다.
 
 */
 
-function solution(n) {
-  var answer = n.toString(3).split("").reverse().join("");
-  return parseInt(answer, 3);
-}
+const solution = (n) => parseInt([...n.toString(3)].reverse().join(""), 3);
