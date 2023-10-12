@@ -10,10 +10,15 @@ n과 m은 각각 1000 이하인 자연수입니다.
 
 */
 
-process.stdin.setEncoding("utf8");
-process.stdin.on("data", (data) => {
-  const n = data.split(" ");
-  const a = Number(n[0]),
-    b = Number(n[1]);
-  for (let j = 0; j < b; j++) console.log("*".repeat(a));
-});
+function solution(n, m) {
+  return [gcd(n, m), lcm(n, m)];
+}
+
+function gcd(a, b) {
+  if (b === 0) return a;
+  return gcd(b, a % b);
+}
+
+function lcm(a, b) {
+  return (a * b) / gcd(a, b);
+}
