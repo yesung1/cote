@@ -15,13 +15,7 @@ budget은 예산을 나타내며, 1 이상 10,000,000 이하의 자연수입니�
 
 */
 
-function solution(d, budget) {
-  let count = 0;
-  d.sort((a, b) => a - b).reduce((acc, curr) => {
-    acc -= curr;
-    if (acc < 0) return acc;
-    count++;
-    return acc;
-  }, budget);
-  return count;
-}
+const solution = (d, budget) =>
+  d
+    .sort((a, b) => a - b)
+    .reduce((acc, curr) => (acc += (budget -= curr) >= 0 ? 1 : 0), 0);
