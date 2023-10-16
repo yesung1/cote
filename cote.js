@@ -34,33 +34,23 @@ return 값이 1 이상 2,000,000,000 이하의 정수가 되는 올바른 입력
 */
 
 function solution(s) {
-  const wordsToNumbers = {
-    zero: 0,
-    one: 1,
-    two: 2,
-    three: 3,
-    four: 4,
-    five: 5,
-    six: 6,
-    seven: 7,
-    eight: 8,
-    nine: 9,
-  };
+  let numbers = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+  ];
+  var answer = s;
 
-  let result = "";
-  let currentWord = "";
-
-  for (let i = 0; i < s.length; i++) {
-    if (isNaN(parseInt(s[i]))) {
-      currentWord += s[i];
-      if (wordsToNumbers.hasOwnProperty(currentWord)) {
-        result += wordsToNumbers[currentWord];
-        currentWord = "";
-      }
-    } else {
-      result += s[i];
-    }
+  for (let i = 0; i < numbers.length; i++) {
+    answer = answer.split(numbers[i]).join(i);
   }
 
-  return parseInt(result);
+  return Number(answer);
 }
