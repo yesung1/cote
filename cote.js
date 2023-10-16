@@ -15,17 +15,24 @@ n은 1 이상, 25이하인 자연수입니다.
 */
 
 function solution(s, n) {
-  var answer = "";
-  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var lower = "abcdefghijklmnopqrstuvwxyz";
-  let temp = 0;
+  const lowercaseStart = "a".charCodeAt(0);
+  const uppercaseStart = "A".charCodeAt(0);
+  const alphabetLength = 26;
 
-  answer = [...s].map((i) => {
-    if (i === " ") return i;
-    i === i.toUpperCase()
-      ? (temp = upper.charAt((upper.indexOf(i) + n) % upper.length))
-      : (temp = lower.charAt((lower.indexOf(i) + n) % lower.length));
-    return temp;
-  });
-  return answer.join("");
+  return s
+    .split("")
+    .map((char) => {
+      if (char === " ") {
+        return char;
+      }
+
+      const isUppercase = char === char.toUpperCase();
+      const startCharCode = isUppercase ? uppercaseStart : lowercaseStart;
+      const shiftedCharCode =
+        ((char.charCodeAt(0) - startCharCode + n) % alphabetLength) +
+        startCharCode;
+
+      return String.fromCharCode(shiftedCharCode);
+    })
+    .join("");
 }
