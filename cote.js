@@ -2,32 +2,22 @@
 
 
 문제 설명
-문자열 s가 주어졌을 때, s의 각 위치마다 자신보다 앞에 나왔으면서, 자신과 가장 가까운 곳에 있는 같은 글자가 어디 있는지 알고 싶습니다.
-예를 들어, s="banana"라고 할 때,  각 글자들을 왼쪽부터 오른쪽으로 읽어 나가면서 다음과 같이 진행할 수 있습니다.
+문자열로 구성된 리스트 strings와, 정수 n이 주어졌을 때, 각 문자열의 인덱스 n번째 글자를 기준으로 오름차순 정렬하려 합니다. 예를 들어 strings가 ["sun", "bed", "car"]이고 n이 1이면 각 단어의 인덱스 1의 문자 "u", "e", "a"로 strings를 정렬합니다.
 
-b는 처음 나왔기 때문에 자신의 앞에 같은 글자가 없습니다. 이는 -1로 표현합니다.
-a는 처음 나왔기 때문에 자신의 앞에 같은 글자가 없습니다. 이는 -1로 표현합니다.
-n은 처음 나왔기 때문에 자신의 앞에 같은 글자가 없습니다. 이는 -1로 표현합니다.
-a는 자신보다 두 칸 앞에 a가 있습니다. 이는 2로 표현합니다.
-n도 자신보다 두 칸 앞에 n이 있습니다. 이는 2로 표현합니다.
-a는 자신보다 두 칸, 네 칸 앞에 a가 있습니다. 이 중 가까운 것은 두 칸 앞이고, 이는 2로 표현합니다.
-따라서 최종 결과물은 [-1, -1, -1, 2, 2, 2]가 됩니다.
-
-문자열 s이 주어질 때, 위와 같이 정의된 연산을 수행하는 함수 solution을 완성해주세요.
-
-제한사항
-1 ≤ s의 길이 ≤ 10,000
-s은 영어 소문자로만 이루어져 있습니다.
+제한 조건
+strings는 길이 1 이상, 50이하인 배열입니다.
+strings의 원소는 소문자 알파벳으로 이루어져 있습니다.
+strings의 원소는 길이 1 이상, 100이하인 문자열입니다.
+모든 strings의 원소의 길이는 n보다 큽니다.
+인덱스 1의 문자가 같은 문자열이 여럿 일 경우, 사전순으로 앞선 문자열이 앞쪽에 위치합니다.
 
 
 */
 
-function solution(s) {
-  var answer = [];
-  let num = 0;
-  for (let i = 0; i < s.length; i++) {
-    num = s.slice(0, i).lastIndexOf(s[i]);
-    num < 0 ? answer.push(num) : answer.push(i - num);
-  }
-  return answer;
+function solution(strings, n) {
+  return strings.sort((a, b) => {
+    const charA = a.charAt(n);
+    const charB = b.charAt(n);
+    return charA !== charB ? charA.localeCompare(charB) : a.localeCompare(b);
+  });
 }
