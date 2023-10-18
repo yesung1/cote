@@ -26,14 +26,7 @@ photo[i]의 원소들은 중복된 값이 들어가지 않습니다.
 
 function solution(name, yearning, photo) {
   var answer = [];
-  let obj = {};
-  name.map((n, i) => (obj[n] = yearning[i]));
-  photo.map((p) => {
-    let v = 0;
-    for (let x of p) {
-      v += obj[x] | 0;
-    }
-    answer.push(v);
-  });
-  return answer;
+  return photo.map((v) =>
+    v.reduce((a, c) => (a += yearning[name.indexOf(c)] | 0), 0)
+  );
 }
