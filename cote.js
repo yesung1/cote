@@ -25,15 +25,4 @@
 
 */
 
-function solution(a, b, n) {
-  let totalColaBottles = 0;
-  let emptyBottles = n;
-
-  while (emptyBottles >= a) {
-    const colaFromEmptyBottles = Math.floor(emptyBottles / a) * b;
-    totalColaBottles += colaFromEmptyBottles;
-    emptyBottles = (emptyBottles % a) + colaFromEmptyBottles;
-  }
-
-  return totalColaBottles;
-}
+const solution = (a, b, n) => Math.floor(Math.max(n - b, 0) / (a - b)) * b;
