@@ -13,8 +13,5 @@
 
 */
 
-function solution(a, b) {
-  let d = new Date(`2016-${a}-${b}`).getDay();
-  let dName = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-  return dName[d];
-}
+const solution = (a, b) =>
+  new Date(`2016-${a}-${b}`).toString().slice(0, 3).toUpperCase();
